@@ -38,7 +38,7 @@ function App() {
             setShowMessage(true);
             setTimeout(() => {
                 setShowMessage(false);
-            }, 3000); // Message shown for 3 seconds
+            }, 30000); // Message shown for 3 seconds
         } else {
             alert("Access denied! Please enter the correct name.");
         }
