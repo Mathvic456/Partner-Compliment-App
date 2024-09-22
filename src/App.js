@@ -3,18 +3,16 @@ import './App.css';
 
 function App() {
     const compliments = [
-        "🌟 You're amazing!",
-        "☀️ You're the best drama I want!",
-        "💪 You're stronger than you know.",
-        "👍 You're doing so well, keep it up!",
-        "✨ You make the world brighter!",
-        "💖 You’re one of a kind, and I love you for it.",
-        "🌼 You bring out the best in everyone.",
-        "😊 Your smile is contagious!",
-        "❤️ You have a beautiful heart.",
-        "🌈 You inspire me every day.",
-        "You are the best nurse ever.",
-        "You are the best Project Manager ever"
+        "🌟 You have an amazing ability to make everyone around you feel special. It’s one of the things I love most about you",
+        "☀️ You are so strong and resilient. I’m always in awe of how you handle challenges with grace.",
+        "💪 Your laughter brightens my day. It’s contagious and makes everything feel right.",
+        "👍 You have a beautiful heart, and it shows in everything you do for others.",
+        "✨ Your intelligence and passion for what you love are incredibly attractive. I admire that about you.",
+        "💖 You have a unique way of seeing beauty in the little things. It makes life so much richer.",
+        "🌼 I love sharing moments with you.",
+        "😊 You have this irresistible charm that leaves me wanting more.",
+        "❤️ The way you tease me just makes me want you even more; it’s like you know my weaknesses.",
+        "🌈 Even miles apart, I can feel your energy; it’s like you’re my personal Wi-Fi signal.",
     ];
 
     const [currentCompliment, setCurrentCompliment] = useState("");
