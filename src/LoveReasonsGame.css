@@ -1,49 +1,50 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    background: linear-gradient(to right, #2c003e, #5e239d);
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    color: white;
   }
   
   /* Container */
   .container {
     text-align: center;
-    background: white;
-    padding: 20px;
+    background: #1a1a2e;
+    padding: 25px;
     border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 400px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 450px;
     width: 90%;
   }
   
   /* Title */
   .title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: bold;
-    color: #e63946;
+    color: #a855f7;
     margin-bottom: 15px;
   }
   
   /* Reason Box */
   .reason-box {
-    background: #ffe5ec;
-    border: 2px solid #ff7b9c;
+    background: #3b2f5b;
+    border: 2px solid #a855f7;
     padding: 15px;
     border-radius: 10px;
     font-size: 18px;
     font-weight: 500;
-    color: #333;
+    color: #e0e0e0;
     margin-bottom: 20px;
   }
   
   /* Button */
   .show-more-button {
-    background: #e63946;
+    background: #a855f7;
     color: white;
     font-size: 16px;
     padding: 10px 20px;
@@ -54,7 +55,7 @@ body {
   }
   
   .show-more-button:hover {
-    background: #c62839;
+    background: #7b2cbf;
     transform: scale(1.05);
   }
   
@@ -64,19 +65,19 @@ body {
   }
   
   .extra-reason-box {
-    background: #ffe5ec;
-    border: 1px solid #ff7b9c;
+    background: #3b2f5b;
+    border: 1px solid #a855f7;
     padding: 10px;
     border-radius: 8px;
     margin-top: 10px;
     font-size: 16px;
-    color: #444;
+    color: #e0e0e0;
   }
   
   /* Responsive */
   @media (max-width: 480px) {
     .title {
-      font-size: 20px;
+      font-size: 18px;
     }
     .reason-box, .extra-reason-box {
       font-size: 16px;

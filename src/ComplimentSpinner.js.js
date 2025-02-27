@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./LoveReasonsGame.css";
-
-const reasons = [
-  "You always make me smile no matter what.",
-  "Your laugh is the most beautiful sound in the world.",
-  "I love the way you support and believe in me.",
-  "You give the best hugs, and they make everything better.",
-  "You are the kindest person I know, and I love your heart."
-  // Add 360 more reasons here
-];
+import reasons from "./reasons.js";
 
 const getTodaysReason = () => {
   const startDate = new Date("2025-01-01"); // Change to your start date
@@ -31,7 +23,9 @@ const LoveReasonsGame = () => {
 
   return (
     <div className="container">
-      <h1 className="title">365 Reasons Why I Love You ❤️</h1>
+      <h1 className="title">
+        I know I'm away for a bit, so I wanted you to have 365 reasons why I love you and why I want to always come back to you ❤️
+      </h1>
       <div className="reason-box">
         <p className="reason-text">{todaysReason}</p>
       </div>
