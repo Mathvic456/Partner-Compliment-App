@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./LoveReasonsGame.css";
 import reasons from "./reasons.js";
 
@@ -23,21 +23,23 @@ const LoveReasonsGame = () => {
 
   return (
     <div className="container">
-      <h1 className="title">
-        I know I'm away for a bit, so I wanted you to have 365 reasons why I love you and why I want to always come back to you ❤️
-      </h1>
-      <div className="reason-box">
-        <p className="reason-text">{todaysReason}</p>
-      </div>
-      <button className="show-more-button" onClick={showMoreReasons}>
-        Show Me More Reasons
-      </button>
-      <div className="extra-reasons">
-        {extraReasons.map((reason, index) => (
-          <div key={index} className="extra-reason-box">
-            <p className="extra-reason-text">{reason}</p>
-          </div>
-        ))}
+      <div className="content-wrapper">
+        <h1 className="title">
+          I know I'm away for a bit, so I wanted you to have 365 reasons why I love you and why I want to always come back to you ❤️
+        </h1>
+        <div className="reason-box">
+          <p className="reason-text">{todaysReason}</p>
+        </div>
+        <button className="show-more-button" onClick={showMoreReasons}>
+          Show Me More Reasons
+        </button>
+        <div className="extra-reasons">
+          {extraReasons.map((reason, index) => (
+            <div key={index} className="extra-reason-box">
+              <p className="extra-reason-text">{reason}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
