@@ -1,129 +1,52 @@
-// src/ComplimentSpinner.js
-import React, { useState, useEffect } from 'react';
-import './ComplimentSpinner.css';
+import React, { useState, useEffect } from "react";
+import "./LoveReasonsGame.css";
 
-function ComplimentSpinner() {
-  // Compliments tailored to Gift's nursing and caretaking skills
-  const compliments = [
-    "Your patients are so lucky to have someone as caring as you.",
-    "You have the most compassionate heart, and it shows in your work.",
-    "The way you care for others is inspiring.",
-    "Your dedication to helping others is truly admirable.",
-    "You make the world a better place with your kindness and skills.",
-    "Your patience and empathy make you an amazing nurse.",
-    "You brighten up every room you enter, both at home and at work.",
-    "Your ability to heal and care for others is a true gift.",
-    "You are the reason many people get better and smile again.",
-    "Your hard work and dedication make a difference in so many lives."
-  ];
+const reasons = [
+  "You always make me smile no matter what.",
+  "Your laugh is the most beautiful sound in the world.",
+  "I love the way you support and believe in me.",
+  "You give the best hugs, and they make everything better.",
+  "You are the kindest person I know, and I love your heart."
+  // Add 360 more reasons here
+];
 
-  const [compliment, setCompliment] = useState('');
-  const [isSpinning, setIsSpinning] = useState(false);
-  const [reply, setReply] = useState('');
-  const [showReplyBox, setShowReplyBox] = useState(false);
-  const [history, setHistory] = useState([]);
+const getTodaysReason = () => {
+  const startDate = new Date("2025-01-01"); // Change to your start date
+  const today = new Date();
+  const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24)) % reasons.length;
+  return reasons[diffDays];
+};
 
-  // Load history from localStorage on component mount
-  useEffect(() => {
-    const storedHistory = localStorage.getItem('complimentHistory');
-    if (storedHistory) {
-      setHistory(JSON.parse(storedHistory));
-    }
-  }, []);
+const LoveReasonsGame = () => {
+  const [todaysReason, setTodaysReason] = useState(getTodaysReason());
+  const [extraReasons, setExtraReasons] = useState([]);
 
-  // Save history to localStorage whenever it changes
-  useEffect(() => {
-    localStorage.setItem('complimentHistory', JSON.stringify(history));
-  }, [history]);
-
-  const handleSpin = () => {
-    setIsSpinning(true);
-    setCompliment('');
-    setShowReplyBox(false);
-    setReply('');
-
-    setTimeout(() => {
-      const randomIndex = Math.floor(Math.random() * compliments.length);
-      const selectedCompliment = compliments[randomIndex];
-      setCompliment(selectedCompliment);
-      setShowReplyBox(true);
-      setIsSpinning(false);
-    }, 1000); // 1 second spin
-  };
-
-  const handleReplyChange = (e) => {
-    setReply(e.target.value);
-  };
-
-  const handleSaveReply = () => {
-    if (reply.trim() === '') return; // Do not save empty replies
-
-    const newEntry = {
-      compliment,
-      reply
-    };
-
-    const updatedHistory = [newEntry, ...history];
-    setHistory(updatedHistory);
-    setReply('');
-    setShowReplyBox(false);
-  };
-
-  const handleClearHistory = () => {
-    if (window.confirm('Are you sure you want to clear all history?')) {
-      setHistory([]);
-      localStorage.removeItem('complimentHistory');
+  const showMoreReasons = () => {
+    const remainingReasons = reasons.filter((r) => !extraReasons.includes(r) && r !== todaysReason);
+    if (remainingReasons.length > 0) {
+      const randomReason = remainingReasons[Math.floor(Math.random() * remainingReasons.length)];
+      setExtraReasons([...extraReasons, randomReason]);
     }
   };
 
   return (
-    <div className="spinner-container">
-      <h2>Hey Gift, Victor did this for you 💖</h2>
-      <button
-        className={`spin-button ${isSpinning ? 'spinning' : ''}`}
-        onClick={handleSpin}
-        disabled={isSpinning}
-      >
-        {isSpinning ? 'Spinning...' : 'Spin for a Compliment'}
+    <div className="container">
+      <h1 className="title">365 Reasons Why I Love You ❤️</h1>
+      <div className="reason-box">
+        <p className="reason-text">{todaysReason}</p>
+      </div>
+      <button className="show-more-button" onClick={showMoreReasons}>
+        Show Me More Reasons
       </button>
-
-      {compliment && (
-        <div className="compliment-section">
-          <p className="compliment">{compliment}</p>
-          {showReplyBox && (
-            <div className="reply-box">
-              <textarea
-                value={reply}
-                onChange={handleReplyChange}
-                placeholder="Write your reply here..."
-                rows="3"
-              ></textarea>
-              <button className="save-reply-button" onClick={handleSaveReply}>
-                Save Reply
-              </button>
-            </div>
-          )}
-        </div>
-      )}
-
-      {history.length > 0 && (
-        <div className="history-section">
-          <h3>History</h3>
-          <button className="clear-history-button" onClick={handleClearHistory}>
-            Clear History
-          </button>
-          <ul className="history-list">
-            {history.map((entry, index) => (
-              <li key={index} className="history-item">
-                <p className="history-compliment">💖 {entry.compliment}</p>
-                {entry.reply && <p className="history-reply">📝 {entry.reply}</p>}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <div className="extra-reasons">
+        {extraReasons.map((reason, index) => (
+          <div key={index} className="extra-reason-box">
+            <p className="extra-reason-text">{reason}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
-export default ComplimentSpinner;
+export default LoveReasonsGame;

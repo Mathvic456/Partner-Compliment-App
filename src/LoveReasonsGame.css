@@ -1,0 +1,90 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container */
+  .container {
+    text-align: center;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 90%;
+  }
+  
+  /* Title */
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e63946;
+    margin-bottom: 15px;
+  }
+  
+  /* Reason Box */
+  .reason-box {
+    background: #ffe5ec;
+    border: 2px solid #ff7b9c;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Button */
+  .show-more-button {
+    background: #e63946;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .show-more-button:hover {
+    background: #c62839;
+    transform: scale(1.05);
+  }
+  
+  /* Extra Reasons */
+  .extra-reasons {
+    margin-top: 20px;
+  }
+  
+  .extra-reason-box {
+    background: #ffe5ec;
+    border: 1px solid #ff7b9c;
+    padding: 10px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .title {
+      font-size: 20px;
+    }
+    .reason-box, .extra-reason-box {
+      font-size: 16px;
+      padding: 12px;
+    }
+    .show-more-button {
+      font-size: 14px;
+      padding: 8px 15px;
+    }
+  }
+  
